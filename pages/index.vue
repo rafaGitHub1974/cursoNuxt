@@ -1,5 +1,14 @@
 <template>
   <div class="container">
+    
+    <!-- <v-row>
+      <v-col cols="12"> -->
+      <div>
+        <input v-model="idProducts" value="1">
+        <button @click="onLoadProductStatic">Static</button>
+        <button @click="onLoadProductDynamic">Dynamic</button>
+      </div>
+      
     <div>
       <Logo />
       <h1 class="title">
@@ -15,7 +24,8 @@
           Documentation
         </a>
         <a
-          href="https://github.com/nuxt/nuxt.js"
+          
+          href="/products/"
           target="_blank"
           rel="noopener noreferrer"
           class="button--grey"
@@ -28,7 +38,21 @@
 </template>
 
 <script>
-export default {}
+export default {
+data() {
+  return {
+    idProducts: ''
+  }
+},
+methods: {
+  onLoadProductStatic(){    
+    this.$router.push('/products')
+  },
+  onLoadProductDynamic(){    
+    this.$router.push('/products/' + this.idProducts)
+  }  
+}
+}
 </script>
 
 <style>
